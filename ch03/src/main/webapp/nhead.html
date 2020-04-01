@@ -19,7 +19,8 @@
 .header .logo {
 	width: 200px;
 	height: 50px;
-	text-indent: 200px;
+	font-size: 0;
+	text-indent: 110%;
 	overflow: hidden;
 	background: url('images/sp_search.svg') no-repeat -2px -3px;
 }
@@ -27,15 +28,59 @@
 .header .search-box {
 	border:3px solid #03CF5D;
 	width: 400px;
-	height: 50px;
+	height: 45px;
 	margin-left:20px;
 }  
 
-.search-box a, .search-box input,.search-box button {
+.search-box a, .search-box input, .search-box button {
 	display: block;
 	float: left;
 }
-.search-box a
+
+.search-box #keyboard {
+	width: 25px;
+	height: 20px;
+	text-indent: 110%;
+	font-size: 0;
+	background: url('images/sp_search.svg') no-repeat -30px -55px;
+	text-indent: 110%;
+	overflow: hidden;
+	margin-top: 10px;
+}
+
+.search-box #drop {
+	width: 25px;
+	height: 20px;
+	text-indent: 110%;
+	font-size: 0;
+	background: url('images/sp_search.svg') no-repeat -80px -50px;
+	text-indent: 110%;
+	overflow: hidden;
+	margin-top: 10px;
+}
+
+.search-box input {
+	width: 300px;
+	height: 40px;
+	border: none;
+	outline: none;
+}
+
+.search-box #glass {
+	width: 46px;
+	height: 47px;
+	outline: none;
+	border: none;
+	text-indent: 110%;
+	font-size: 0;
+	background: url('images/sp_search.svg') no-repeat 13px -48px;
+	text-indent: 110%;
+	overflow: hidden;
+	margin-top: -2px;
+	margin-left: 4px;
+	background-color: #03CF5D;
+}
+
 </style>
 </head>
 <body>
@@ -43,9 +88,9 @@
 		<h1 class='logo'>네이버</h1>
 		<div class='search-box'>
 			<input type='text' />
-			<a href='#'>키보드</a>
-			<a href='#'>드롭다운</a>
-			<button>돋보기</button>
+			<a href='#' id='keyboard'>키보드</a>
+			<a href='#' id='drop'>드롭다운</a>
+			<button id='glass'>돋보기</button>
 		</div>
 	</div>
 </body>
