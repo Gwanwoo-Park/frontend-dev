@@ -34,15 +34,30 @@ var imageViewer = {
 			'title': info.name
 		});
 	},
-	_onImageDblClicked: function() {
+	_consoleImageLog: function() {
 		var name = $(this).attr('alt');
 		console.log(name);
+	},
+	_intervalId: null,
+	_slideShow: function() {
+		if(imageViewer._intervalId) {
+			// 슬라이드쇼 진행 상태
+			clearInterval(imageViewer._intervalId);
+			imageViewer._intervalId = null;
+			$(this).text('슬라이드 시작');
+		} else {
+			// 슬라이드쇼 중지 상태
+			imageViewer._intervalId = setInterval(imageViewer._changeImage, 1000);
+			$(this).text('슬라이드 중지');
+		}
+		
 	},
 	init: function() {
 		$(function() {
 			$('.image-viewer #btn-change').click(imageViewer._changeImage);
+			$('.image-viewer #btn-slideshow').click(imageViewer._slideShow);
 			$('.image-viewer img')
-				.dblclick(imageViewer._onImageDblClicked)
+				.dblclick(imageViewer._consoleImageLog)
 				.mousedown(imageViewer._changeImage);
 			
 			// 첫번째 이미지 선택
